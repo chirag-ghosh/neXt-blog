@@ -2,6 +2,7 @@ import axios from 'axios';
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { API_URL } from '../../constants';
 import { BlogForList } from '../../types/blog'
 
 const Blog = (props: BlogForList) => {
@@ -29,7 +30,7 @@ const Blogs: NextPage = () => {
     const [list, setList] = useState<BlogForList[]>([]);
 
     useEffect(() => {
-        axios.get("http://localhost:3000/api/blogs")
+        axios.get(`${API_URL}/blogs`)
             .then((res) => setList(res.data))
             .catch((err) => console.log(err));
     }, []);

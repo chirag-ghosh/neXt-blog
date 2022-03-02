@@ -3,6 +3,7 @@ import { NextPage } from "next"
 import { useEffect, useState } from "react";
 import { Blog } from "../../types/blog";
 import Editor from "rich-markdown-editor";
+import { API_URL } from "../../constants";
 
 interface Query {
     pid: number
@@ -20,7 +21,7 @@ const Blog: NextPage<Query> = ( { pid } ) => {
 
     useEffect(() => {
 
-        axios.get(`http://localhost:3000/api/blogs/${pid}`)
+        axios.get(`${API_URL}/blogs/${pid}`)
             .then((res) => setBlog(res.data))
             .catch((err) => console.log(err));
     }, []);

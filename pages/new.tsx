@@ -3,6 +3,7 @@ import type { NextPage } from 'next'
 import { useState } from 'react';
 import Editor from "rich-markdown-editor";
 import { Blog } from '../types/blog';
+import { API_URL } from "../constants.js"
 
 const New: NextPage = () => {
 
@@ -17,7 +18,7 @@ const New: NextPage = () => {
       publishDate: new Date()
     }
     
-    axios.post("http://localhost:3000/api/new", newBlog)
+    axios.post(`${API_URL}/new`, newBlog)
           .then((res) => console.log(res))
           .catch((err) => console.log(err))
   }

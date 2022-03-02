@@ -1,5 +1,4 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { isStringObject } from 'util/types';
 import prisma from '../../../lib/prisma';
 import { Blog } from '../../../types/blog'
 
@@ -10,7 +9,7 @@ type Error = {
 const handler = async (req: NextApiRequest, res: NextApiResponse<Blog | Error>) => {
 
     const { pid } = req.query;
-    const blogID = isStringObject(pid) ? parseInt(pid) : parseInt(pid[0])
+    const blogID = typeof pid === "string" ? parseInt(pid) : parseInt(pid[0])
     
     const result = await prisma.blog.findUnique({
         where: {

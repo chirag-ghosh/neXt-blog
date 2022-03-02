@@ -1,5 +1,5 @@
 export interface Blog {
     title: string,
-    content: string,
-    publishDate: string
+    content: string | null,
+    publishDate: Date
 };

@@ -1,15 +1,23 @@
 import axios from 'axios';
 import type { NextPage } from 'next'
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { Blog } from '../../types/blog'
+import { BlogForList } from '../../types/blog'
 
-const Blog = (props: Blog) => {
+const Blog = (props: BlogForList) => {
 
     const date = new Date(props.publishDate);
-    const viewDate = date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear();
+    const router = useRouter();
+
+    const handleClick = () => {
+        router.push({
+            pathname: '/[pid]',
+            query: {pid: props.id}
+        })
+    }
     
     return(
-        <div className='blog-card'>
+        <div className='blog-card' onClick={handleClick}>
             <div className='blog-card-title'>{props.title}</div>
             <div className='blog-card-date'>{date.toDateString()}</div>
         </div>
@@ -18,7 +26,7 @@ const Blog = (props: Blog) => {
 
 const Blogs: NextPage = () => {
 
-    const [list, setList] = useState<Blog[]>([]);
+    const [list, setList] = useState<BlogForList[]>([]);
 
     useEffect(() => {
         axios.get("http://localhost:3000/api/blogs")

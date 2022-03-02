@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import prisma from '../../../lib/prisma';
-import { Blog } from '../../../types/blog'
+import { BlogForList } from '../../../types/blog'
 
-const handler = async (req: NextApiRequest, res: NextApiResponse<Blog[]>) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse<BlogForList[]>) => {
 
     const result = await prisma.blog.findMany({
         where: {}

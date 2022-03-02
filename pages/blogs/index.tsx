@@ -42,7 +42,7 @@ const Blogs: NextPage = () => {
             <div className='list'>
                 {list.map((blog) => {
                     return(
-                        <Blog {...blog}></Blog>
+                        <Blog key={blog.id} {...blog}></Blog>
                     )
                 })}
             </div>

@@ -11,7 +11,7 @@ const Blog = (props: BlogForList) => {
 
     const handleClick = () => {
         router.push({
-            pathname: '/[pid]',
+            pathname: '/blogs/[pid]',
             query: {pid: props.id}
         })
     }

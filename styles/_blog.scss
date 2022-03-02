@@ -1,0 +1,28 @@
+.blog-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .title {
+        font-family: 'Poppins', sans-serif;
+        font-size: 3.5rem;
+        font-weight: 600;
+        text-align: center;
+        color: #B33030;
+        margin: 2rem;
+    }
+
+    .date {
+        color: #666;
+        font-weight: 600;
+        padding-bottom: 1rem;
+        padding-left: .1rem;
+        font-size: 1.3rem;
+    }
+
+    .content {
+        width: 60%;
+        margin-top: 3rem;
+    }
+}

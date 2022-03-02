@@ -2,7 +2,7 @@ var SITE_URL;
 
 if (process.env.NODE_ENV === "production") {
 
-    SITE_URL = "http://next.chiragghosh.me";
+    SITE_URL = "https://next.chiragghosh.me";
 }
 
 else if (process.env.NODE_ENV === "development") {
